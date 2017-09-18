@@ -12,7 +12,7 @@ terraform {
 }
 
 module "vpc" {
-  source           = "git@github.com:akiryiak/terraform.git//modules/aws/network/vpc"
+  source           = "git@github.com:akiryiak/terraform.git//modules/aws/network/vpc?ref=fbed117648fca366ad7a573dffc94a5dc4fef0e1"
 }
 
 module "public_subnet" {
