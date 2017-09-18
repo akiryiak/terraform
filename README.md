@@ -63,7 +63,7 @@ terraform apply -var access_key=${AWS_ACCESS_KEY} -var secret_key=${AWS_SECRET_K
 
 ## Inspired by
 
-[Terraform up&running]("https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca")
+[Terraform up&running](https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca)
 [Hashicorp github]("https://github.com/hashicorp/best-practices/tree/master/terraform")
 [Charity.wtf]("https://charity.wtf/tag/terraform/")
 [Terraform official]("https://www.terraform.io/")
