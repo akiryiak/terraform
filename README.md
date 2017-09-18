@@ -8,7 +8,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-[Terraform installation]("https://www.terraform.io/intro/getting-started/install.html")
+[Terraform installation](https://www.terraform.io/intro/getting-started/install.html)
 
 ### Installing
 
@@ -53,20 +53,20 @@ terraform apply -var access_key=${AWS_ACCESS_KEY} -var secret_key=${AWS_SECRET_K
 
 1. Use modules and environments to have repeatable code and consistent environments
 2. Use aws tags, ex. terraform=true, environment="production"
-3. Store [tfstate remotely]("https://www.terraform.io/intro/getting-started/remote.html") (S3, consul, ..)
-4. Use [Lock]("https://www.terraform.io/docs/state/locking.html") for teamwork with same tfstate
+3. Store [tfstate remotely](https://www.terraform.io/intro/getting-started/remote.html) (S3, consul, ..)
+4. Use [Lock](https://www.terraform.io/docs/state/locking.html) for teamwork with same tfstate
 5. Enable versioning for tfstate S3
-6. Enable [encryption]("https://www.terraform.io/docs/state/sensitive-data.html") for remote tfstate as you can have sensitive data in tfstate
-7. Variables from remote tfstate can be used through [terraform_remote_state]("https://www.terraform.io/docs/providers/terraform/d/remote_state.html")
-8. Keep modules in [vcs]("https://www.terraform.io/docs/modules/sources.html") and use 'ref' to use specific commit or branch
-9. Use loops, conditions and [built-in functions]("https://www.terraform.io/docs/configuration/interpolation.html")
+6. Enable [encryption](https://www.terraform.io/docs/state/sensitive-data.html) for remote tfstate as you can have sensitive data in tfstate
+7. Variables from remote tfstate can be used through [terraform_remote_state](https://www.terraform.io/docs/providers/terraform/d/remote_state.html)
+8. Keep modules in [vcs](https://www.terraform.io/docs/modules/sources.html) and use 'ref' to use specific commit or branch
+9. Use loops, conditions and [built-in functions](https://www.terraform.io/docs/configuration/interpolation.html)
 
 ## Inspired by
 
 [Terraform up&running](https://blog.gruntwork.io/a-comprehensive-guide-to-terraform-b3d32832baca)
-[Hashicorp github]("https://github.com/hashicorp/best-practices/tree/master/terraform")
-[Charity.wtf]("https://charity.wtf/tag/terraform/")
-[Terraform official]("https://www.terraform.io/")
+[Hashicorp github](https://github.com/hashicorp/best-practices/tree/master/terraform)
+[Charity.wtf](https://charity.wtf/tag/terraform/)
+[Terraform official](https://www.terraform.io/)
 
 ## TODO:
 1. Add locking
