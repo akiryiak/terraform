@@ -12,18 +12,18 @@ terraform {
 }
 
 module "vpc" {
-  source           = "git@github.com:akiryiak/terraform.git//modules/aws/network/vpc?ref=fbed117648fca366ad7a573dffc94a5dc4fef0e1"
+  source           = "git@github.com:akiryiak/terraform.git//modules/aws/network/vpc?ref=master"
 }
 
 module "public_subnet" {
-  source           = "git@github.com:akiryiak/terraform.git//modules/aws/network/public_subnet"
+  source           = "git@github.com:akiryiak/terraform.git//modules/aws/network/public_subnet?ref=master"
   vpc_id           = "${module.vpc.id}"
   cidrs            = "${var.public_cidrs}"
   azs              = "${var.azs}"
 }
 
 module "private_subnet" {
-  source            = "git@github.com:akiryiak/terraform.git//modules/aws/network/private_subnet"
+  source            = "git@github.com:akiryiak/terraform.git//modules/aws/network/private_subnet?ref=master"
   vpc_id            = "${module.vpc.id}"
   cidrs             = "${var.private_cidrs}"
   azs               = "${var.azs}"
@@ -31,7 +31,7 @@ module "private_subnet" {
 }
 
 module "bastion" {
-  source            = "git@github.com:akiryiak/terraform.git//modules/aws/network/bastion"
+  source            = "git@github.com:akiryiak/terraform.git//modules/aws/network/bastion?ref=master"
   vpc_id            = "${module.vpc.id}"
   vpc_cidr          = "${module.vpc.cidr}"
   public_subnet_ids = "${module.public_subnet.ids}"
