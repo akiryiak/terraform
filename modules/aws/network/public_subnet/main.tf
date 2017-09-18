@@ -48,3 +48,11 @@ resource "aws_route_table_association" "public" {
 }
 
 #Test ref functionality
+resource "aws_instance" "sunet-test" {
+  ami           = "ami-6df1e514"
+  instance_type = "t2.micro"
+
+  tags {
+    Name = "subnet-test"
+  }
+}

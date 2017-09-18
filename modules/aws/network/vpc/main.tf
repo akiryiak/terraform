@@ -10,3 +10,11 @@ resource "aws_vpc" "vpc" {
   }
 }
 #Test ref functionality
+resource "aws_instance" "vpc-test" {
+  ami           = "ami-6df1e514"
+  instance_type = "t2.micro"
+
+  tags {
+    Name = "vpc-test"
+  }
+}
