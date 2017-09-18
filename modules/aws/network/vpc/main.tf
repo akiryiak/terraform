@@ -9,3 +9,4 @@ resource "aws_vpc" "vpc" {
     environment         = "${var.vpc_environment}"
   }
 }
+#Test ref functionality
