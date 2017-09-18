@@ -13,5 +13,7 @@ resource "aws_instance" "registry_instance" {
   associate_public_ip_address  = "${var.public_ip}"
   tags {
     Name                       = "${var.ec2_name}"
+    terraform                  = "true"
+    environment                = "${var.environment}"
   }
 }

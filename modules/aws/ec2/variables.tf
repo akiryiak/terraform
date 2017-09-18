@@ -19,3 +19,6 @@ variable "ssh_key" {
 variable "public_ip" {
   default = true
 }
+variable "environment" {
+  default = "production"
+}
