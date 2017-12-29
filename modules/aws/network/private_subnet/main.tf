@@ -14,6 +14,12 @@ resource "aws_nat_gateway" "nat" {
 
   count                   = "${length(var.azs)}"
 
+  tags      {
+    Name                  = "${var.name}.${element(var.azs, count.index)}"
+    terraform             = "true"
+    environment           = "${var.environment}"
+  }
+
   lifecycle {
     create_before_destroy = true
   }
