@@ -1,1 +1,0 @@
-output "ids" { value = ["${aws_subnet.public.*.id}"] }

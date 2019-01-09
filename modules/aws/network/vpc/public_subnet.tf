@@ -1,21 +1,22 @@
+# Public Subnets
 resource "aws_internet_gateway" "public" {
-  vpc_id                  = "${var.vpc_id}"
+  vpc_id                  = "${aws_vpc.vpc.id}"
 
   tags {
-    Name                  = "${var.name}"
+    Name                  = "${var.project}-igw"
     terraform             = "true"
     environment           = "${var.environment}"
   }
 }
 
 resource "aws_subnet" "public" {
-  vpc_id                  = "${var.vpc_id}"
-  cidr_block              = "${element(var.cidrs, count.index)}"
+  vpc_id                  = "${aws_vpc.vpc.id}"
+  cidr_block              = "${element(var.public_cidrs, count.index)}"
   availability_zone       = "${element(var.azs, count.index)}"
-  count                   = "${length(var.cidrs)}"
+  count                   = "${length(var.public_cidrs)}"
 
   tags      {
-    Name = "${var.name}.${element(var.azs, count.index)}"
+    Name = "${var.project}-public_subnet-${element(var.azs, count.index)}"
     terraform             = "true"
     environment           = "${var.environment}"
   }
@@ -27,7 +28,7 @@ resource "aws_subnet" "public" {
 }
 
 resource "aws_route_table" "public" {
-  vpc_id                  = "${var.vpc_id}"
+  vpc_id                  = "${aws_vpc.vpc.id}"
 
   route {
       cidr_block          = "0.0.0.0/0"
@@ -35,14 +36,14 @@ resource "aws_route_table" "public" {
   }
 
   tags {
-    Name                  = "${var.name}.${element(var.azs, count.index)}"
+    Name                  = "${var.project}-public_route_table"
     terraform             = "true"
     environment           = "${var.environment}"
   }
 }
 
 resource "aws_route_table_association" "public" {
-  count                   = "${length(var.cidrs)}"
+  count                   = "${length(var.public_cidrs)}"
   subnet_id               = "${element(aws_subnet.public.*.id, count.index)}"
   route_table_id          = "${aws_route_table.public.id}"
 }
